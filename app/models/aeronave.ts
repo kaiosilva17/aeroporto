@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, belongsTo, column } from '@adonisjs/lucid/orm'
+import { BaseModel, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
 import CompanhiasAerea from './companhias_aerea.js'
-import type { BelongsTo } from '@adonisjs/lucid/types/relations'
+import type { BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
+import Voo from './voo.js'
 
 export default class Aeronave extends BaseModel {
   @column({ isPrimary: true })
@@ -27,4 +28,7 @@ export default class Aeronave extends BaseModel {
 
   @belongsTo(() => CompanhiasAerea)
   declare companhia: BelongsTo<typeof CompanhiasAerea>
+
+  @hasMany(() => Voo)
+  declare voos: HasMany<typeof Voo>
 }

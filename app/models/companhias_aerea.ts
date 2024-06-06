@@ -3,6 +3,7 @@ import { BaseModel, column, hasMany } from '@adonisjs/lucid/orm'
 import Aeronave from './aeronave.js'
 import type { HasMany } from '@adonisjs/lucid/types/relations'
 import Funcionario from './funcionario.js'
+import Voo from './voo.js'
 
 export default class CompanhiasAerea extends BaseModel {
   @column({ isPrimary: true })
@@ -25,4 +26,7 @@ export default class CompanhiasAerea extends BaseModel {
 
   @hasMany(() => Funcionario)
   declare funcionarios: HasMany<typeof Funcionario>
+
+  @hasMany(() => Voo)
+  declare voos: HasMany<typeof Voo>
 }

@@ -19,7 +19,7 @@ export default class extends BaseSchema {
         .inTable('companhias_aereas')
         .notNullable()
       table
-        .integer('porto_embarque_id')
+        .integer('portao_embarque_id')
         .unsigned()
         .references('id')
         .inTable('portoes_embarques')

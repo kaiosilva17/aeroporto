@@ -1,7 +1,11 @@
+import CompanhiasAerea from '#models/companhias_aerea'
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
 
 export default class extends BaseSeeder {
   async run() {
-    // Write your database queries inside the run method
+    await CompanhiasAerea.createMany([
+      {nome: 'TAM', pais: 'Brasil'},
+      {nome: 'Emirates', pais: 'Dubai'},
+    ])
   }
 }

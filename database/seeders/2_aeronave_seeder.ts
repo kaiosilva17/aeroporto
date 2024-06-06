@@ -1,7 +1,11 @@
+import Aeronave from '#models/aeronave'
 import { BaseSeeder } from '@adonisjs/lucid/seeders'
 
 export default class extends BaseSeeder {
   async run() {
-    // Write your database queries inside the run method
+    await Aeronave.createMany([
+      {modelo: 'Boeing 747', capacidade: 300, anoFabricacao: 2020, companhiaId: 1},
+      {modelo: 'Boeing 777', capacidade: 250, anoFabricacao: 2002, companhiaId: 2},
+    ])
   }
 }

@@ -19,11 +19,11 @@ export default class Voo extends BaseModel {
   @column()
   declare destino: string
 
-  @column.dateTime()
-  declare dataPartida: DateTime
+  @column()
+  declare dataPartida: string
 
-  @column.dateTime()
-  declare dataChegada: DateTime
+  @column()
+  declare dataChegada: string
 
   @column()
   declare aeronaveId: number
@@ -32,7 +32,7 @@ export default class Voo extends BaseModel {
   declare companhiaId: number
 
   @column()
-  declare portaoEmbarqueId: number
+  declare portao_embarqueId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime

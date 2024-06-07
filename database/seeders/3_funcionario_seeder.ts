@@ -4,8 +4,8 @@ import { BaseSeeder } from '@adonisjs/lucid/seeders'
 export default class extends BaseSeeder {
   async run() {
     await Funcionario.createMany([
-      {nome: 'Kaio', sobrenome: 'Filho', cargo: 'Piloto', companhiaId: 1},
-      {nome: 'Arthur', sobrenome: 'Junior', cargo: 'Co-piloto', companhiaId: 2},
+      { nome: 'Kaio', cargo: 'Piloto', companhiaAereaId: 1 },
+      { nome: 'Arthur', cargo: 'Co-piloto', companhiaAereaId: 2 },
     ])
   }
 }

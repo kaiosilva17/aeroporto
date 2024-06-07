@@ -9,7 +9,7 @@ export default class PortoesEmbarquesController {
   }
 
   async show({ params }: HttpContext) {
-    return await PortoesEmbarque.query().where('id', params.id).preload('voos').firstOrFail()
+    return await PortoesEmbarque.findOrFail(params.id)
   }
 
   async store({ request }: HttpContext) {

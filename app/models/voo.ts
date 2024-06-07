@@ -29,10 +29,10 @@ export default class Voo extends BaseModel {
   declare aeronaveId: number
 
   @column()
-  declare companhiaId: number
+  declare companhiaAereaId: number
 
   @column()
-  declare portao_embarqueId: number
+  declare portaoEmbarqueId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -43,10 +43,14 @@ export default class Voo extends BaseModel {
   @belongsTo(() => Aeronave)
   declare aeronave: BelongsTo<typeof Aeronave>
 
-  @belongsTo(() => CompanhiasAerea)
+  @belongsTo(() => CompanhiasAerea, {
+    foreignKey: 'companhiaAereaId',
+  })
   declare companhia: BelongsTo<typeof CompanhiasAerea>
 
-  @belongsTo(() => PortoesEmbarque)
+  @belongsTo(() => PortoesEmbarque, {
+    foreignKey: 'portaoEmbarqueId',
+  })
   declare portaoEmbarque: BelongsTo<typeof PortoesEmbarque>
 
   @hasMany(() => Passageiro)

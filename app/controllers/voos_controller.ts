@@ -9,7 +9,12 @@ export default class VoosController {
   }
 
   async show({ params }: HttpContext) {
-    return await Voo.query().where('id', params.id).preload('passageiros').firstOrFail()
+    return await Voo.query()
+      .where('id', params.id)
+      .preload('aeronave')
+      .preload('companhia')
+      .preload('portaoEmbarque')
+      .firstOrFail()
   }
 
   async store({ request }: HttpContext) {
@@ -20,7 +25,7 @@ export default class VoosController {
       'dataPartida',
       'dataChegada',
       'aeronaveId',
-      'companhiaId',
+      'companhiaAereaId',
       'portaoEmbarqueId',
     ])
     return await Voo.create(data)
@@ -35,7 +40,7 @@ export default class VoosController {
       'dataPartida',
       'dataChegada',
       'aeronaveId',
-      'companhiaId',
+      'companhiaAereaId',
       'portaoEmbarqueId',
     ])
 

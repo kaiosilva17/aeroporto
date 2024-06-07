@@ -10,7 +10,7 @@ export default class extends BaseSchema {
       table.integer('capacidade').notNullable()
       table.integer('ano_fabricacao').notNullable()
       table
-        .integer('companhia_id')
+        .integer('companhia_aerea_id')
         .unsigned()
         .references('id')
         .inTable('companhias_aereas')

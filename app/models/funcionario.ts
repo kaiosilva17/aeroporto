@@ -11,13 +11,10 @@ export default class Funcionario extends BaseModel {
   declare nome: string
 
   @column()
-  declare sobrenome: string
-
-  @column()
   declare cargo: string
 
   @column()
-  declare companhiaId: number
+  declare companhiaAereaId: number
 
   @column.dateTime({ autoCreate: true })
   declare createdAt: DateTime
@@ -25,6 +22,8 @@ export default class Funcionario extends BaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   declare updatedAt: DateTime
 
-  @belongsTo(() => CompanhiasAerea)
+  @belongsTo(() => CompanhiasAerea, {
+    foreignKey: 'companhiaAereaId',
+  })
   declare companhia: BelongsTo<typeof CompanhiasAerea>
 }

@@ -13,13 +13,13 @@ export default class FuncionariosController {
   }
 
   async store({ request }: HttpContext) {
-    const data = request.only(['nome', 'cargo', 'companhia_aereaId'])
+    const data = request.only(['nome', 'cargo', 'companhiaAereaId'])
     return await Funcionario.create(data)
   }
 
   async update({ params, request }: HttpContext) {
     const funcionario = await Funcionario.findOrFail(params.id)
-    const data = request.only(['nome', 'cargo', 'companhia_aereaId'])
+    const data = request.only(['nome', 'cargo', 'companhiaAereaId'])
 
     funcionario.merge(data)
     await funcionario.save()
